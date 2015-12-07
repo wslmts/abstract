@@ -19,14 +19,24 @@
     var f=new win();
     f.show({
      btnCancle:"关闭",
-     content:form
-    })
+     content:form,
+     btnSureHandler:function(){
+         console.log("sure")
+     },
+     btnCancleHandler:function(){
+       console.log("cancel");
+     }
+    });
     f.onEvent("input1",function(){
       console.log("add event input1");
+      f.offEvent("input1",function(data){
+        console.log("off event input1",data);
+      });
     });
     f.onEvent("input1",function(data){
      console.log("add event input1 too",data);
     });
+
     f.onEvent("input2",function(){
       console.log("add event input2");
     });
