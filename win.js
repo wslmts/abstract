@@ -19,9 +19,7 @@ win.prototype={
       $("body").append(html);
     },
     onEvent:function(type,handler) {
-        if (!this.handlers[type]) {
-            this.handlers[type] = [];
-        }
+        this.handlers[type] = this.handlers[type]||[];
         this.handlers[type].push(handler);
     },
     fireEvent:function(type,data){
