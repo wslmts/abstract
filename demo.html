@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <script src="jquery.js"></script>
+  <script src="win.js"></script>
+  <script>
+   var form=['<form name="resume-share-form" id="resume-share-form">',
+           ' <label>姓名 </label> <input type="text" class="text" autocomplete="off" name="username" id="username">',
+    ' <label>邮箱 </label> <input type="text" class="text" autocomplete="off" name="email" id="email">',
+    '  <input type="button" class="text" autocomplete="off"  id="ok" value="触发事件">',
+    '</form>'
+   ].join("");
+   $(function(){
+    var f=new win();
+    f.show({
+     btnCancle:"关闭",
+     content:form
+    })
+    f.onEvent("input1",function(){
+      console.log("add event input1");
+    });
+    f.onEvent("input1",function(data){
+     console.log("add event input1 too",data);
+    });
+    f.onEvent("input2",function(){
+      console.log("add event input2");
+    });
+    $("#ok").on("click",function(){
+        f.fireEvent("input1",'param');
+    });
+   });
+  </script>
+  <title>Document</title>
+ </head>
+ <body>
+  
+ </body>
+</html>
